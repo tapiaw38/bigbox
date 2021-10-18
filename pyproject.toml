@@ -7,6 +7,15 @@ authors = ["tapiaw38 <tapiaw38@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = "3.2.1"
+psycopg2-binary = "^2.9.1"
+Pillow = "^8.4.0"
+django-restframework = "^0.0.1"
+Markdown = "^3.3.4"
+django-filter = "^21.1"
+django-environ = "^0.7.0"
+django-extensions = "^3.1.3"
+ipdb = "^0.13.9"
+djangorestframework = "^3.12.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
