@@ -5,7 +5,7 @@ from .base import env
 
 # Base
 SECRET_KEY = env('DJANGO_SECRET_KEY')
-ALLOWED_HOSTS = env.list(default=['127.0.0.1', '.herokuapp.com'])
+ALLOWED_HOSTS = env.list(default=['*'])
 
 
 # Databases
