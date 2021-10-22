@@ -14,6 +14,7 @@ class ReasonSerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "name",
+            "order",
             "slug"
         )
 

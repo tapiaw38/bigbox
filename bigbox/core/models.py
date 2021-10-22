@@ -18,8 +18,6 @@ class Common(models.Model):
 class CommonInfo(Common):
     """ Model Info """
 
-    order = models.IntegerField(default=0, verbose_name='orden')
-
     class Meta:
         abstract = True
 
@@ -27,7 +25,7 @@ class CommonInfo(Common):
 class Reason(CommonInfo):
     """ Model Reason """
 
-    pass
+    order = models.IntegerField(default=0, verbose_name='orden')
 
 
 class Category(CommonInfo):
@@ -40,6 +38,8 @@ class Category(CommonInfo):
         max_length=100,
         default='FFFFFF'
     )
+
+    order = models.IntegerField(default=0, verbose_name='orden')
 
 
 class Image(models.Model):
