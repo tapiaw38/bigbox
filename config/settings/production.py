@@ -3,20 +3,17 @@
 from .base import *  # NOQA
 from .base import env
 
-import dj_database_url
-import os
-
 # Base
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 ALLOWED_HOSTS = env.list(default=['127.0.0.1', '.herokuapp.com'])
 
 
 # Databases
-#DATABASES['default'] = env.db('HEROKU_POSTGRESQL_MAUVE_URL')  # NOQA
-DATABASES = {'default': dj_database_url.config(default=os.environ.get('HEROKU_POSTGRESQL_MAUVE_URL'))}
+DATABASES['default'] = env.db('HEROKU_POSTGRESQL_MAUVE_URL')  # NOQA
+#DATABASES = {'default': dj_database_url.config(default=os.environ.get('HEROKU_POSTGRESQL_MAUVE_URL'))}
 
-DATABASES['default']['ATOMIC_REQUESTS'] = True  # NOQA
-DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)  # NOQA
+#DATABASES['default']['ATOMIC_REQUESTS'] = True  # NOQA
+#DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)  # NOQA
 
 
 # Security
@@ -53,18 +50,11 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [  # noqa F405
 ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 
-# Installed apps production
-INSTALLED_APPS += [
-    'gunicorn',
-    'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles'
-
-]  # noqa F405
-
+# Gunicorn
+INSTALLED_APPS += ['gunicorn']  # noqa F405
 
 # WhiteNoise
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')  # noqa F405
-WHITENOISE_USE_FINDERS = True
 
 
 # Logging
