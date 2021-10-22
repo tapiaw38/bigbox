@@ -16,22 +16,17 @@ POSTGRES_PASSWORD=1234
 
 - git clone https://github.com/tapiaw38/bigbox.git
   Go inside downloaded repo and running poetry to install dependences
-  console
+
 - poetry install
 
 ### Create migrations:
-
-console
 
 - python3 manage.py makemigrations
 
 ### Create relation in DB:
 
-console
-
 - python3 manage.py migrate
 
 ### Running Server:
 
-console
-foo@bar:~$ python3 manage.py runserver
+- python3 manage.py runserver
