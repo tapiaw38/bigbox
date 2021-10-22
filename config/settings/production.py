@@ -3,13 +3,18 @@
 from .base import *  # NOQA
 from .base import env
 
+import dj_database_url
+import os
+
 # Base
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 ALLOWED_HOSTS = env.list(default=['127.0.0.1', '.herokuapp.com'])
 
 
 # Databases
-DATABASES['default'] = env.db('HEROKU_POSTGRESQL_MAUVE_URL')  # NOQA
+#DATABASES['default'] = env.db('HEROKU_POSTGRESQL_MAUVE_URL')  # NOQA
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('HEROKU_POSTGRESQL_MAUVE_URL'))}
+
 DATABASES['default']['ATOMIC_REQUESTS'] = True  # NOQA
 DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)  # NOQA
 
