@@ -1,4 +1,4 @@
-FROM python:3.9.5 AS base
+FROM python:3.8 AS base
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV POETRY_VIRTUALENVS_CREATE=false
@@ -25,4 +25,4 @@ RUN chmod +x /entrypoint.sh
 EXPOSE 8000
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn config.wsgi --bind 0.0.0.0:5000 --chdir=/app
