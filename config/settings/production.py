@@ -9,7 +9,7 @@ ALLOWED_HOSTS = env.list(default=['127.0.0.1', '.herokuapp.com'])
 
 
 # Databases
-DATABASES['default'] = env.db('DATABASE_URL')  # NOQA
+DATABASES['default'] = env.db('HEROKU_POSTGRESQL_MAUVE_URL')  # NOQA
 DATABASES['default']['ATOMIC_REQUESTS'] = True  # NOQA
 DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)  # NOQA
 
