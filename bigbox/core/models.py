@@ -25,7 +25,7 @@ class CommonInfo(Common):
 class Reason(CommonInfo):
     """ Model Reason """
 
-    order = models.IntegerField(default=0, verbose_name='orden')
+    pass
 
 
 class Category(CommonInfo):
@@ -34,9 +34,15 @@ class Category(CommonInfo):
     description = models.TextField(
         verbose_name=u'descripción'
     )
+
     color = models.CharField(
         max_length=100,
         default='FFFFFF'
+    )
+
+    order = models.IntegerField(
+        default=0,
+        verbose_name='orden'
     )
 
 
