@@ -39,8 +39,6 @@ class Category(CommonInfo):
         default='FFFFFF'
     )
 
-    order = models.IntegerField(default=0, verbose_name='orden')
-
 
 class Image(models.Model):
     """ Model Image """
