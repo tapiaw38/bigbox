@@ -1,6 +1,6 @@
 #!/bin/bash
 
+python manage.py collectstatic --noimput
 python manage.py migrate
-python manage.py collectstatic --no-input --clear
 echo "$@"
 exec "$@"
