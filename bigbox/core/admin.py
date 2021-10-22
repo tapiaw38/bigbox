@@ -3,6 +3,7 @@ from django.contrib.admin.decorators import register
 
 # Models 
 from bigbox.core.models import (
+  
     Box,
     BoxImage,
     Activity,
