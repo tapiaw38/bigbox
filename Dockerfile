@@ -25,4 +25,4 @@ RUN chmod +x /entrypoint.sh
 EXPOSE 8000
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD gunicorn config.wsgi --bind 0.0.0.0:5000 --chdir=/app
+CMD gunicorn config.wsgi --bind 0.0.0.0:$PORT --chdir=/app
